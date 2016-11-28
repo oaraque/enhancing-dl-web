@@ -5,3 +5,4 @@ docker run \
 	-v $(pwd)/static:/usr/share/nginx/html \
 	-p 80:80 \
 	nginx 
+

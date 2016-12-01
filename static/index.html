@@ -3,7 +3,8 @@
 <head>
 	<title>Enhancing Deep Learning Sentiment Analysis with Ensemble Techniques in Social Applications</title>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-	<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<script src='js/run_prettify.js'></script> 
 </head>
 <body>
 <div id="mainContentArea">
@@ -18,22 +19,44 @@
           <div id="header"></div>
           <div class="contentTitle">Additional material for the paper submitted to Expert Systems with Applications</div>
             <div class="pageContent">
-	      <p class="secondTitle">Extended metrics of the models</p>
+		<p class="secondTitle">Extended metrics of the models</p>
 
-	      <p>Performance metrics for the base classifiers.</p>
-	      <img src="base_classifiers.png" width="800" />
+		<p>Performance metrics for the base classifiers.</p>
+	      	<img src="img/base_classifiers.png" width="800" />
 
-	      <p>Performance metrics for the proposed models.</p>
-	      <img src="proposed_models.png" width="800" />
+	      	<p>Performance metrics for the proposed models.</p>
+	      	<img src="img/proposed_models.png" width="800" />
 
-	      <p class="secondTitle">Vectorial models for download</p>
+	     	 <p class="secondTitle">Vectorial models for download</p>
 
-	      <a href='data/twitter_w2vmodel_500d_5mc' download>Word2Vec for Twitter model</a>
-	      <p>
-	      <a href='data/movie_d2vmodel_100d_dbow' download>Doc2Vec for Movie Reviews model</a>
-	      <p>
-  	      <a href='data/sswe_movie.tar.gz' download>SSWE for Movie Reviews model</a>
-	      <p>
+	     	 <a href='data/twitter_w2vmodel_500d_5mc' download>Word2Vec for Twitter model</a>
+	     	 <p>
+	     	 <a href='data/movie_d2vmodel_100d_dbow' download>Doc2Vec for Movie Reviews model</a>
+	     	 <p>
+  	     	 <a href='data/sswe_movie.tar.gz' download>SSWE for Movie Reviews model</a>
+	     	 <p>
+			
+		 <p></p>
+		 <p style="margin-top:40px;">For loading the models, the <a href="https://radimrehurek.com/gensim/">gensim</a> library may be used. Python sample code:</p>
+	      	<code id='code' class="prettyprint">from gensim.models import Word2Vec, Doc2Vec
+import numpy as np
+		
+twitter_word2vec_model = Word2Vec.load_word2vec_format('path-to-twitter-model')
+			
+movie_doc2vec_model = Doc2Vec.load_word2vec_format('path-to-dos2vec-movie-model')
+			
+def read_sentiwords(vecs_f, vocab_f):
+	sentiwords = dict()
+	with open(vocab_f, 'r') as f:
+	     vocab = f.read().splitlines()
+    	with open(vecs_f, 'r') as f:
+    	    for i, line in enumerate(f):
+    	        v = np.fromstring(line, sep=' ')
+    	        sentiwords[vocab[i]] = v
+    	return sentiwords
+			
+movie_sswe_model = read_sentiwords('path-to-vecs-file', 'path-to-vocab-file')</code>
+
             </div>
             <div id="footer">
 	      <hr>
@@ -44,7 +67,7 @@
 	    </div>
         </div>
 	<div class='logos'>
-		<a href="https://gsi.dit.upm.es"> <img src='gsi.png' /> </a>
+		<a href="https://gsi.dit.upm.es"><img src='img/gsi.png' /> </a>
 	</div>
 
 	</div>

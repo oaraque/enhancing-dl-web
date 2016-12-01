@@ -76,7 +76,7 @@ body
 
 .secondTitle
 {
-  font-size: 15px;
+  font-size: 20px;
   font-weight: bold;
   text-align: center;
 }
@@ -108,4 +108,22 @@ body
 #footer
 {
   text-align: center;
+}
+
+code 
+{
+	  display: block;
+	    white-space: pre-wrap   
+}
+
+#code
+{
+  text-align: left;
+  font-family: "Courier New", Courier, monospace;
+  white-space: pre-wrap;
+  background: #eeeeee;
+  border: 1px solid #888888;
+  color: black;
+  padding: 1em;
+  margin: 5px;
 }
